@@ -4,7 +4,7 @@ function getDocument(url) {
 
 function generateHomePage() {
     let main = document.querySelector(".main");
-    documentReference.keys().map((key) => {
+    Object.keys(documentReference).map((key) => {
         let div = document.createElement("div");
         let title = document.createElement("h4");
         let digest = document.createElement("p");
