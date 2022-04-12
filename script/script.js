@@ -4,6 +4,7 @@ function getDocument(url) {
 
 function generateHomePage() {
     let main = document.querySelector(".main");
+    main.innerHTML = "";
     Object.keys(documentReference).map((key) => {
         let div = document.createElement("div");
         let title = document.createElement("h4");
@@ -24,9 +25,11 @@ function generateHomePage() {
 }
 
 function generateDocumentContent(documentURL) {
+    let main = document.querySelector(".main");
+    main.innerHTML = "";
     getDocument(documentURL)
         .then((document) => {
-            document.querySelector(".main").innerHTML = marked.parse(document);
+            main.innerHTML = marked.parse(document);
         })
         .catch((err) => {
             generateHomePage();
