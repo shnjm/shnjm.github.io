@@ -26,7 +26,6 @@ function generateHomePage() {
 
 function generateDocumentContent(documentURL) {
     let main = document.querySelector(".main");
-    main.innerHTML = "";
     getDocument(documentURL)
         .then((document) => {
             main.innerHTML = marked.parse(document);
