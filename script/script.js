@@ -23,9 +23,19 @@ function generateHomePage() {
     });
 }
 
+function generateDocumentContent(documentURL) {
+    getDocument(documentURL)
+        .then((document) => {
+            document.querySelector(".main").innerHTML = marked.parse(document);
+        })
+        .catch((err) => {
+            generateHomePage();
+        })
+}
+
 function loadPage(path) {
     if(path) {
-        console.log(path);
+        generateDocumentContent(path.substr(1));
     }
     else {
         generateHomePage();
@@ -35,7 +45,7 @@ function loadPage(path) {
 
 window.onload = () => {
     // document.querySelector(".main").textContent = "Main content body. For now its blank.";
-    loadPage();
+    loadPage(window.location.hash);
 }
 
 window.onhashchange = () => {
