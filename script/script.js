@@ -13,6 +13,7 @@ function generateHomePage() {
         digest.appendChild(document.createTextNode(documentReference[key].digest));
         readMore.appendChild(document.createTextNode("Read more"));
         readMore.href = "/#" + documentReference[key].file;
+        readMore.classList.add("read-more");
         digest.appendChild(readMore);
         div.appendChild(title);
         div.appendChild(digest);

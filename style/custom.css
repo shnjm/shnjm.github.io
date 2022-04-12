@@ -6,3 +6,8 @@
     display: inline;
     margin-right: 15px;
 }
+
+.read-more {
+    font-style: italic;
+    text-decoration: underline;
+}
